@@ -1,1 +1,1 @@
-{"version":"pest_3.5.1","defects":[],"times":{"P\\Tests\\Feature\\ExampleTest::__pest_evaluable_it_is_an_example_test":0.01}}
+{"version":"pest_3.5.1","defects":{"P\\Tests\\Feature\\User\\UserAuthenticatedTest::__pest_evaluable_it_test_user_can_login_to_the_system":5},"times":{"P\\Tests\\Feature\\ExampleTest::__pest_evaluable_it_is_an_example_test":0.01,"P\\Tests\\Feature\\User\\UserAuthenticatedTest::__pest_evaluable_it_test_user_can_login_to_the_system":0.083}}
