@@ -3,7 +3,7 @@ import { UserLoginIn } from "../api/user/UserLoginIn";
 import { InitialState, UserPayload } from "../types/auth/auth";
 
 const initialState: InitialState = {
-    isAuthenticated:false,
+  isAuthenticated: false,
   loading: false,
   userFirstName: "",
   userLastName: "",
@@ -22,11 +22,14 @@ const authSlice = createSlice({
         state.loading = true;
         state.isAuthenticated = false;
       })
-      .addCase(UserLoginIn.fulfilled, (state, { payload }: PayloadAction<UserPayload>) => {
+      .addCase(
+        UserLoginIn.fulfilled,
+        (state, { payload }: PayloadAction<UserPayload>) => {
           if (payload) {
             setPayloadForState(state, payload);
           }
-      });
+        },
+      );
   },
 });
 
