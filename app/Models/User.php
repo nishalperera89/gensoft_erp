@@ -38,7 +38,6 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
         'remember_token',
     ];
 
@@ -47,12 +46,12 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
-    protected function casts(): array
-    {
-        return [
-            'password' => 'hashed',
-        ];
-    }
+//    protected function casts(): array
+//    {
+//        return [
+//            'password' => 'hashed',
+//        ];
+//    }
 
     public function personalAccessTokens(): MorphMany
     {
