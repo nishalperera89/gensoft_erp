@@ -1,6 +1,6 @@
 import axios from "axios";
 import AppRoutes from "./utilities/routes/AppRoutes";
-import React from "react";
+//mport React from "react";
 
 // @ts-ignore
 axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL;
