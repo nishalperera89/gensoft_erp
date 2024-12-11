@@ -3,6 +3,8 @@
 namespace App\Action\User;
 
 use App\Models\User;
+use App\Models\UserContactInformation;
+use App\Models\UserResidentialDetail;
 use App\Service\ResponseGenerator\ResponseGenerator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -16,15 +18,7 @@ class UserRegister
         try {
             DB::beginTransaction();
 
-            User::create([
-                'id' => Str::uuid(),
-                'first_name' => $validatedUserRegisterRequest['first_name'],
-                'last_name' => $validatedUserRegisterRequest['last_name'],
-                'user_name' => $validatedUserRegisterRequest['user_name'],
-                'email' => $validatedUserRegisterRequest['email'],
-                'role' => $validatedUserRegisterRequest['role'],
-                'password' => Hash::make($validatedUserRegisterRequest['password']),
-            ]);
+            (new UserDetailsStore())->UserBasicDetailsStore($validatedUserRegisterRequest);
 
             DB::commit();
 

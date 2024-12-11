@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class UserSignInMiddleware
+class DemoUserCheckMiddleware
 {
     /**
      * Handle an incoming request.
@@ -15,6 +15,13 @@ class UserSignInMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        return $next($request);
+        if (auth()->check() && auth()->user()->tokenCan('server:demo')){
+            return $next($request);
+        }
+
+        return response()->json([
+            'status' => Response::HTTP_UNAUTHORIZED,
+            'message' => Response::$statusTexts[Response::HTTP_UNAUTHORIZED]
+        ]);
     }
 }
