@@ -37,6 +37,9 @@ const setPayloadForState = (state: InitialState, payload: UserPayload) => {
   if (!payload) {
     return;
   }
+
+  localStorage.setItem('token',payload.token)
+
   state.loading = false;
   state.userFirstName = payload.first_name;
   state.userLastName = payload.last_name;
